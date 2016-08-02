@@ -19,7 +19,7 @@
 namespace framebuffer {
 namespace {
 
-constexpr char kVirtualConsole[] = "/dev/class/console/vc3";
+constexpr char kVirtualConsole[] = "/dev/class/console/vc";
 
 mojo::FramebufferFormat GetFramebufferFormat(int display_format) {
   switch (display_format) {

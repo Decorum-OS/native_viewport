@@ -21,4 +21,6 @@ executable("native_viewport") {
     "//mojo/services/framebuffer/interfaces",
     "//mojo/system",
   ]
+
+  libs = [ "mxio" ]
 }
