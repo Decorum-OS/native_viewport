@@ -23,19 +23,19 @@ constexpr char kVirtualConsole[] = "/dev/class/console/vc";
 
 mojo::FramebufferFormat GetFramebufferFormat(int display_format) {
   switch (display_format) {
-    case MX_DISPLAY_FORMAT_RGB_565:
+    case MX_PIXEL_FORMAT_RGB_565:
       return mojo::FramebufferFormat::RGB_565;
-    case MX_DISPLAY_FORMAT_RGB_332:
+    case MX_PIXEL_FORMAT_RGB_332:
       return mojo::FramebufferFormat::RGB_332;
-    case MX_DISPLAY_FORMAT_RGB_2220:
+    case MX_PIXEL_FORMAT_RGB_2220:
       return mojo::FramebufferFormat::RGB_2220;
-    case MX_DISPLAY_FORMAT_ARGB_8888:
+    case MX_PIXEL_FORMAT_ARGB_8888:
       return mojo::FramebufferFormat::ARGB_8888;
-    case MX_DISPLAY_FORMAT_RGB_x888:
+    case MX_PIXEL_FORMAT_RGB_x888:
       return mojo::FramebufferFormat::RGB_x888;
-    case MX_DISPLAY_FORMAT_MONO_1:
+    case MX_PIXEL_FORMAT_MONO_1:
       return mojo::FramebufferFormat::MONO_1;
-    case MX_DISPLAY_FORMAT_MONO_8:
+    case MX_PIXEL_FORMAT_MONO_8:
       return mojo::FramebufferFormat::MONO_8;
     default:
       return mojo::FramebufferFormat::NONE;
