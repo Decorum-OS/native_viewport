@@ -54,11 +54,11 @@ void FramebufferImpl::Create(
   }
 
   ioctl_display_get_fb_t frame_buffer;
-  ssize_t result = mxio_ioctl(fd, DISPLAY_OP_GET_FB, nullptr, 0, &frame_buffer,
-                              sizeof(frame_buffer));
+  ssize_t result = mxio_ioctl(fd, IOCTL_DISPLAY_GET_FB, nullptr, 0,
+                              &frame_buffer, sizeof(frame_buffer));
 
   if (result < 0) {
-    FTL_DLOG(ERROR) << "DISPLAY_OP_GET_FB failed.";
+    FTL_DLOG(ERROR) << "IOCTL_DISPLAY_GET_FB failed.";
     close(fd);
     callback.Run(nullptr, nullptr);
     return;
@@ -97,9 +97,10 @@ FramebufferImpl::~FramebufferImpl() {
 }
 
 void FramebufferImpl::Flush(const FlushCallback& callback) {
-  ssize_t result = mxio_ioctl(fd_, DISPLAY_OP_FLUSH_FB, nullptr, 0, nullptr, 0);
+  ssize_t result =
+      mxio_ioctl(fd_, IOCTL_DISPLAY_FLUSH_FB, nullptr, 0, nullptr, 0);
   if (result < 0) {
-    FTL_DLOG(ERROR) << "DISPLAY_OP_FLUSH_FB failed.";
+    FTL_DLOG(ERROR) << "IOCTL_DISPLAY_FLUSH_FB failed.";
     binding_.Close();
     return;
   }
